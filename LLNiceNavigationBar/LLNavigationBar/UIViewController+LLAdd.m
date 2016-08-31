@@ -11,6 +11,7 @@
 #import <objc/message.h>
 
 static CGFloat const kNavigationBarHeight = 44.f;
+static NSTimeInterval const kDuration = 0.4f;
 
 @interface UIViewController () <UIGestureRecognizerDelegate>
 
@@ -78,7 +79,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
             scrollViewFrame.origin.y += kNavigationBarHeight;
             scrollViewFrame.size.height -= kNavigationBarHeight;
             
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:kDuration animations:^{
                 self.navigationController.navigationBar.frame = navBarFrame;
                 self.scrollView.frame = scrollViewFrame;
                 if ([self.scrollView isKindOfClass:[UIScrollView class]]) {
@@ -101,7 +102,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
             scrollViewFrame.origin.y -= kNavigationBarHeight;
             scrollViewFrame.size.height += kNavigationBarHeight;
             
-            [UIView animateWithDuration:0.2 animations:^{
+            [UIView animateWithDuration:kDuration animations:^{
                 self.navigationController.navigationBar.frame = frame;
                 self.scrollView.frame = scrollViewFrame;
                 if ([self.scrollView isKindOfClass:[UIScrollView class]]) {
@@ -136,7 +137,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
         CGRect frame = self.navigationController.navigationBar.frame;
         frame.origin.y = -24; // 20 - kNavigationBarHeight
         if (animated) {
-            [UIView animateWithDuration:0.2 animations:^{
+            [UIView animateWithDuration:kDuration animations:^{
                 self.navigationController.navigationBar.frame = frame;
             } completion:^(BOOL finished) {
                 self.statusView.alpha = 1;
@@ -151,7 +152,7 @@ YYSYNTH_DYNAMIC_PROPERTY_CTYPE(isHidden, setIsHidden, BOOL)
         CGRect navBarFrame = self.navigationController.navigationBar.frame;
         navBarFrame.origin.y = 20;
         if (animated) {
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:kDuration animations:^{
                 self.navigationController.navigationBar.frame = navBarFrame;
             }];
         } else {
